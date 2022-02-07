@@ -1,14 +1,21 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+
 import "./App.css";
-import React from 'react';
-import { BrowserRouter, Routes, Route} from "react-router-dom";
-import { useState } from "react";
+
+import { Nav, Home } from "./components/index";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>yo</h1>
-    </div>
-  );
+	return (
+		<BrowserRouter>
+			<div className="App">
+				<Nav />
+				<Routes>
+					<Route path="/" element={<Home />} />
+				</Routes>
+			</div>
+		</BrowserRouter>
+	);
 }
 
 export default App;
