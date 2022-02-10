@@ -13,9 +13,11 @@ const ReadingList = () => {
 		});
 	};
 
-	return (
+	return readingList.length > 0? (
 		<div className="main-section">{readingList.map(articleObj => <ReadingListCard key={articleObj.article_id}deleteArt={deleteArt} articleObj={articleObj}/>)}</div>
-	);
+	):(
+        <div className="main-section">Your reading list is empty...</div>
+    )
 };
 
 export default ReadingList;

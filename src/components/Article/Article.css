@@ -1,30 +1,28 @@
 .Article__body p {
 	background-color: #fdfff2;
 	color: #5c4bff;
-    padding: 2.5vw;
-    margin: 0.8vw;
+	padding: 2.5vw;
+	margin: 0.8vw;
 	border-radius: 1px;
 }
 
 .Article--alight-left {
 	text-align: left;
 	font-size: 16px;
-  
-
 }
 
 .Article--spread {
 	font-size: 12px;
-    color: #5c4bff;
-    text-decoration: none;
+	color: #5c4bff;
+	text-decoration: none;
 }
 
 .button {
-    color:#ff7ad6;
+	color: #ff7ad6;
 }
 
 .button:hover {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .Article__title {
@@ -40,17 +38,43 @@
 	border-radius: 1px;
 	text-align: left;
 	font-size: 14px;
+    word-wrap: normal;
 }
 
-#Comments__toggle {
+.Comments__button {
 	font-family: inherit;
 	background-color: #fdfff2;
 	border: none;
+    border-radius: 1px;
 	margin: 3px;
 	padding: 3px;
 	color: #ff7ad6;
 }
 
+.Comments__button:hover {
+	cursor: pointer;
+}
+
 #Comments__toggle:hover {
-    cursor: pointer;
+	cursor: pointer;
+}
+
+#comments__input {
+	font-family: 'Xanh Mono', monospace;
+	border: 1px solid #fdfff2;
+    border-radius: 1px;
+	word-wrap: break-word;
+	word-break: break-all;
+    resize:none;
+    width: 85%;
+    background-color:#ff7ad6;
+    color: #fdfff2;
+    margin: 2px;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-wrap: wrap;
 }

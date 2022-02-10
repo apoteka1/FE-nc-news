@@ -17,8 +17,6 @@ const Nav = () => {
 					<div onClick={() => toggleTopics()} className="nav__link">
 						<p>Topics</p>
 					</div>
-					<NavLink path="/profile" text="Profile" />
-					<NavLink path="/" text="Publish" />
 					<NavLink path="/reading-list" text="Reading List" />
 				</div>
 			</div>

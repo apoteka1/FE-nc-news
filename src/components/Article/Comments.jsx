@@ -52,16 +52,19 @@ const Comments = (props) => {
 
 	return (
 		<div id="comments">
-			<button id="Comments__toggle" onClick={toggleOpen}>
+			<button className="Comments__button" onClick={toggleOpen}>
 				{isOpen ? "hide comments " : "show comments"}
 			</button>
 			{isOpen ? (
-				<form onSubmit={(e) => handleSubmit(e)}>
-					<input
-						type="text"
+				<form className="form" onSubmit={(e) => handleSubmit(e)}>
+					<textarea
+                        rows="3"
+                        wrap="soft" maxlength="400"
+                        id="comments__input"
 						value={currentComment}
-						onChange={(e) => handleChange(e)}></input>
-					<button type="submit">post</button>
+						onChange={(e) => handleChange(e)}
+                        required></textarea>
+					<button className="Comments__button" type="submit">post</button>
 				</form>
 			) : null}
 			{isOpen ? commentsList.map(formatComment) : null}
