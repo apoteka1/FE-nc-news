@@ -6,6 +6,8 @@ import ArtCard from "./ArtCard";
 
 const List = () => {
 	const { topic } = useParams();
+    const [isLoading, setIsLoading] = useState(true);
+    const [isErr, setIsErr] = useState(false);
 	const [list, setList] = useState([]);
 	const [query, setQuery] = useState({
 		topic: topic,
@@ -16,7 +18,11 @@ const List = () => {
 	useEffect(() => {
 		getArticlesList({ topic: topic }).then((res) => {
 			setList(res);
-		});
+            setIsLoading(false);
+		})
+        .catch(()=>{
+            setIsErr(true)
+        });
 	}, [topic]);
 
 	const handleChange = (e) => {
@@ -26,12 +32,23 @@ const List = () => {
 	};
 
 	const handleSubmit = () => {
+        
 		getArticlesList(query).then((res) => {
 			setList(res);
-		});
+           
+		})
+        .catch(()=>{
+            setIsErr(true)
+        });
 	};
 
-	return (
+    if (isErr){
+        return (
+            <p>connection error...</p>
+        )
+    }
+
+	return isLoading? (<p>loading...</p>):(
 		<div className="main-section">
 			<span>
 				<label htmlFor="sort_by">sort by </label>

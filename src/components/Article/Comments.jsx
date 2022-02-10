@@ -7,12 +7,15 @@ const Comments = (props) => {
 	const [commentsList, setCommentsList] = useState([]);
 	const { isOpen, toggleOpen, id } = props;
 	const [currentComment, setCurrentComment] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
+	const [isErr, setIsErr] = useState(false);
 
 	useEffect(() => {
 		getComments(id).then((res) => {
 			setCommentsList(res);
-		});
-	}, [id]);
+            setIsLoading(false)
+		}).catch(()=>setIsErr(true))
+	}, [id, isOpen]);
 
 	const handleChange = (e) => {
 		setCurrentComment(e.target.value);
@@ -22,14 +25,14 @@ const Comments = (props) => {
 		e.preventDefault();
 		addComment(id, user.username, currentComment).then((res) => {
 			setCommentsList((curr) => [res, ...curr]);
-		});
+		}).catch(()=>setIsErr(true));
 
 		setCurrentComment("");
 	};
 
     const handleDelete = (id)=>{
         setCommentsList((curr) => curr.filter((c)=> c.comment_id !== id))
-        deleteComment(id);
+        deleteComment(id).catch(()=>setIsErr(true));
 
     }
 
@@ -40,9 +43,9 @@ const Comments = (props) => {
 			<div className="comment" key={comment_id}>
 				<p className="Article--spread">
 					by {author} | {date} {time.slice(0, 5)} |{" "}
-					<i className="fas fa-arrow-up"></i> {votes} |{" "}
+					<i className="fas fa-arrow-up"></i> {votes} {" "}
 					{author === user.username ? (
-						<span className="Article--spread button" onClick={()=>handleDelete(comment_id)}>delete</span>
+						<span className="Article--spread button delete" onClick={()=>handleDelete(comment_id)}>delete</span>
 					) : null}
 				</p>
 				<p>{body}</p>
@@ -50,7 +53,11 @@ const Comments = (props) => {
 		);
 	};
 
-	return (
+    if (isErr) {
+		return <p>connection error...</p>;
+	}
+
+	return isLoading? (<button className="Comments__button">loading comments...</button>):(
 		<div id="comments">
 			<button className="Comments__button" onClick={toggleOpen}>
 				{isOpen ? "hide comments " : "show comments"}
@@ -58,8 +65,8 @@ const Comments = (props) => {
 			{isOpen ? (
 				<form className="form" onSubmit={(e) => handleSubmit(e)}>
 					<textarea
-                        rows="3"
-                        wrap="soft" maxlength="400"
+                        rows="4"
+                        wrap="soft" maxLength="400"
                         id="comments__input"
 						value={currentComment}
 						onChange={(e) => handleChange(e)}

@@ -9,7 +9,7 @@ export const LikeButton = ({ likes, id }) => {
 		setToggle(false);
 		setlikeChange((currChange) => currChange + 1);
 		addLike(id).catch((err) => {
-			console.log(err);
+			
 			setlikeChange((currChange) => currChange - 1);
 		});
 	};

@@ -4,12 +4,16 @@ import { getTopicsList } from "../../utils/api";
 
 const TopicsMenu = () => {
 	const [topicsList, setTopicsList] = useState([]);
-
+    const [isErr, setIsErr] = useState(false);
 	useEffect(() => {
 		getTopicsList().then((res) => {
 			setTopicsList(res);
-		});
+		}).catch(()=>setIsErr(true));
 	}, []);
+
+    if (isErr){
+        return (<>connection error...</>)
+    }
 
 	return (
 		<div className="nav__main-block">

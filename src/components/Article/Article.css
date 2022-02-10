@@ -49,6 +49,7 @@
 	margin: 3px;
 	padding: 3px;
 	color: #ff7ad6;
+    width: 25%;
 }
 
 .Comments__button:hover {
@@ -66,7 +67,7 @@
 	word-wrap: break-word;
 	word-break: break-all;
     resize:none;
-    width: 85%;
+    width: 75%;
     background-color:#ff7ad6;
     color: #fdfff2;
     margin: 2px;
@@ -74,7 +75,12 @@
 
 .form {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     flex-wrap: wrap;
+}
+
+.delete {
+    float: right;
 }
