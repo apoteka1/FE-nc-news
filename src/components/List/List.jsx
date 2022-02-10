@@ -6,8 +6,8 @@ import ArtCard from "./ArtCard";
 
 const List = () => {
 	const { topic } = useParams();
-    const [isLoading, setIsLoading] = useState(true);
-    const [isErr, setIsErr] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
+	const [isErr, setIsErr] = useState(false);
 	const [list, setList] = useState([]);
 	const [query, setQuery] = useState({
 		topic: topic,
@@ -16,13 +16,14 @@ const List = () => {
 	});
 
 	useEffect(() => {
-		getArticlesList({ topic: topic }).then((res) => {
-			setList(res);
-            setIsLoading(false);
-		})
-        .catch(()=>{
-            setIsErr(true)
-        });
+		getArticlesList({ topic: topic })
+			.then((res) => {
+				setList(res);
+				setIsLoading(false);
+			})
+			.catch(() => {
+				setIsErr(true);
+			});
 	}, [topic]);
 
 	const handleChange = (e) => {
@@ -32,23 +33,22 @@ const List = () => {
 	};
 
 	const handleSubmit = () => {
-        
-		getArticlesList(query).then((res) => {
-			setList(res);
-           
-		})
-        .catch(()=>{
-            setIsErr(true)
-        });
+		getArticlesList(query)
+			.then((res) => {
+				setList(res);
+			})
+			.catch(() => {
+				setIsErr(true);
+			});
 	};
 
-    if (isErr){
-        return (
-            <p className="no-border--rounded">connection error...</p>
-        )
-    }
+	if (isErr) {
+		return <p className="no-border--rounded">connection error...</p>;
+	}
 
-	return isLoading? (<p className="no-border--rounded">loading...</p>):(
+	return isLoading ? (
+		<p className="no-border--rounded">loading...</p>
+	) : (
 		<div className="main-section no-border--rounded">
 			<span>
 				<label htmlFor="sort_by">sort by </label>

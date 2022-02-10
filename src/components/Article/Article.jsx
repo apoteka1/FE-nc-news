@@ -54,7 +54,9 @@ const Article = () => {
 						<i className="far fa-comment"></i> {comment_count}
 					</a>
 				</p>
-				<p className="Article--alight-left no-border--rounded">{body}</p>
+				<p className="Article--alight-left no-border--rounded">
+					{body}
+				</p>
 			</div>
 			<div className="Article__comments">
 				<Comments

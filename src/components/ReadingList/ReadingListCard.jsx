@@ -17,9 +17,14 @@ const ReadingListCard = (props) => {
 	const [date, time] = created_at.split("T");
 
 	return (
-		<div key={article_id + "reading-list"} className="ArtCard__card no-border--rounded">
+		<div
+			key={article_id + "reading-list"}
+			className="ArtCard__card no-border--rounded">
 			<div className="no-decs">
-				<Link className="text--purple" to={`/articles/${article_id}`} article_id={article_id}>
+				<Link
+					className="text--purple"
+					to={`/articles/${article_id}`}
+					article_id={article_id}>
 					{title}
 				</Link>
 			</div>

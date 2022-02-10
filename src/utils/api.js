@@ -35,14 +35,18 @@ export function addLike(id) {
 }
 
 export function addComment(art_id, username, body) {
-	return newsApi.post(`/articles/${art_id}/comments`, {username:username, body:body})
-    .then((res)=> {
-        return res.data.comment
-    })
+	return newsApi
+		.post(`/articles/${art_id}/comments`, {
+			username: username,
+			body: body,
+		})
+		.then((res) => {
+			return res.data.comment;
+		});
 }
 
-export function deleteComment(id){
-    return newsApi.delete(`/comments/${id}`)
+export function deleteComment(id) {
+	return newsApi.delete(`/comments/${id}`);
 }
 
 /*
