@@ -1,9 +1,18 @@
+//errors
+//loading
+//reading list 
+//pagination
+//login - user validation
+//reducers
+//refactor
+//themes
+//responsivity
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useState } from "react";
 
 import "./App.css";
 
-import { Nav, Home } from "./components/index";
+import { Nav, List, Article, ReadingList, Profile } from "./components";
 
 function App() {
 	return (
@@ -11,7 +20,11 @@ function App() {
 			<div className="App">
 				<Nav />
 				<Routes>
-					<Route path="/" element={<Home />} />
+					<Route path="/" element={<List />} />
+					<Route path="/articles/topics/:topic" element={<List />} />
+					<Route path="/articles/:article_id" element={<Article />} />
+					<Route path="/reading-list" element={<ReadingList />} />
+					<Route path="/profile" element={<Profile />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

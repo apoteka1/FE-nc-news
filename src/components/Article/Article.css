@@ -1,0 +1,56 @@
+.Article__body p {
+	background-color: #fdfff2;
+	color: #5c4bff;
+    padding: 2.5vw;
+    margin: 0.8vw;
+	border-radius: 1px;
+}
+
+.Article--alight-left {
+	text-align: left;
+	font-size: 16px;
+  
+
+}
+
+.Article--spread {
+	font-size: 12px;
+    color: #5c4bff;
+    text-decoration: none;
+}
+
+.button {
+    color:#ff7ad6;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.Article__title {
+	font-style: italic;
+	font-size: 18px;
+}
+
+.comment {
+	background-color: #fdfff2;
+	color: #5c4bff;
+	margin: 2px;
+	padding: 2vw;
+	border-radius: 1px;
+	text-align: left;
+	font-size: 14px;
+}
+
+#Comments__toggle {
+	font-family: inherit;
+	background-color: #fdfff2;
+	border: none;
+	margin: 3px;
+	padding: 3px;
+	color: #ff7ad6;
+}
+
+#Comments__toggle:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,36 @@
+.ArtCard__card {
+	background-color: #fdfff2;
+	color: #5c4bff;
+	margin: 2px;
+	border-radius: 1px;
+	padding: 2vw;
+	text-decoration: none;
+}
+.ArtCard__details {
+	font-size: 12px;
+}
+
+.ArtCard__card p {
+	margin: 1vw;
+}
+
+.no-decs a {
+	text-decoration: none;
+	margin: 0;
+	text-align: center;
+	font-style: italic;
+	color: #5c4bff;
+}
+
+.queries {
+   font-family: inherit;
+   background-color:#fdfff2;
+   border: none;
+   margin:3px;
+   padding:2px;
+   color: #5c4bff;
+}
+
+#button {
+    padding: 2px 7px;
+}
