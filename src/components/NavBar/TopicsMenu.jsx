@@ -9,14 +9,14 @@ const TopicsMenu = () => {
 		getTopicsList().then((res) => {
 			setTopicsList(res);
 		}).catch(()=>setIsErr(true));
-	}, []);
+	}, []); 
 
     if (isErr){
         return (<>connection error...</>)
     }
 
 	return (
-		<div className="nav__main-block">
+		<div className="nav__main-block no-border--rounded">
 			{topicsList.map((topic) => {
 				const { slug } = topic;
 				return (

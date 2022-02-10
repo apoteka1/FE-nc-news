@@ -35,27 +35,26 @@ const Article = () => {
 	return isLoading ? (
 		<p>Loading...</p>
 	) : (
-		<div className="main-section">
-			<div className="Article__body">
-				<p className="Article__title">{title}</p>
-				<p className="Article--spread">
+		<div className="main-section no-border--rounded">
+			<div className="Article__body no-border--rounded">
+				<p className="Article__title no-border--rounded">{title}</p>
+				<p className="Article--spread no-border--rounded">
 					By {author} | {date} {time.slice(0, 5)} |{" "}
 					<Link
-						className="Article--spread button"
+						className="Article--spread text--pink"
 						to={`/articles/topics/${topic}`}>
 						{topic}
 					</Link>
 					&nbsp;|&nbsp;
 					<LikeButton likes={votes} id={article_id} />{" "}
 					<a
-						className="Article--spread button"
+						className="Article--spread text--pink"
 						onClick={toggleOpen}
 						href="#comments">
-						<i className="far fa-comment"></i>
-						{comment_count}
+						<i className="far fa-comment"></i> {comment_count}
 					</a>
 				</p>
-				<p className="Article--alight-left">{body}</p>
+				<p className="Article--alight-left no-border--rounded">{body}</p>
 			</div>
 			<div className="Article__comments">
 				<Comments

@@ -7,7 +7,6 @@
 	flex-wrap: wrap;
 	background-color: #ff7ad6;
 	margin: 0.8vw;
-	border-radius: 1px;
 }
 
 .nav__link h1 {
@@ -37,8 +36,6 @@
 	align-items: center;
 
 	flex-grow: 1;
-	border-radius: 1px;
-	color: #5c4bff;
 	background-color: #fdfff2;
 }
 .nav__link p {
@@ -54,7 +51,7 @@
 	text-align: center;
 	margin: 0;
 	padding: 0.1vh 0.5vw;
-	color: #5c4bff;
+	
 }
 #nav {
 	padding: 0;

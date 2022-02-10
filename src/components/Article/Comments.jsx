@@ -7,14 +7,16 @@ const Comments = (props) => {
 	const [commentsList, setCommentsList] = useState([]);
 	const { isOpen, toggleOpen, id } = props;
 	const [currentComment, setCurrentComment] = useState("");
-    const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 	const [isErr, setIsErr] = useState(false);
 
 	useEffect(() => {
-		getComments(id).then((res) => {
-			setCommentsList(res);
-            setIsLoading(false)
-		}).catch(()=>setIsErr(true))
+		getComments(id)
+			.then((res) => {
+				setCommentsList(res);
+				setIsLoading(false);
+			})
+			.catch(() => setIsErr(true));
 	}, [id, isOpen]);
 
 	const handleChange = (e) => {
@@ -23,29 +25,34 @@ const Comments = (props) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addComment(id, user.username, currentComment).then((res) => {
-			setCommentsList((curr) => [res, ...curr]);
-		}).catch(()=>setIsErr(true));
+		addComment(id, user.username, currentComment)
+			.then((res) => {
+				setCommentsList((curr) => [res, ...curr]);
+			})
+			.catch(() => setIsErr(true));
 
 		setCurrentComment("");
 	};
 
-    const handleDelete = (id)=>{
-        setCommentsList((curr) => curr.filter((c)=> c.comment_id !== id))
-        deleteComment(id).catch(()=>setIsErr(true));
-
-    }
+	const handleDelete = (id) => {
+		setCommentsList((curr) => curr.filter((c) => c.comment_id !== id));
+		deleteComment(id).catch(() => setIsErr(true));
+	};
 
 	const formatComment = (commentObj) => {
 		const { comment_id, votes, created_at, author, body } = commentObj;
 		const [date, time] = created_at.split("T");
 		return (
-			<div className="comment" key={comment_id}>
+			<div className="comment no-border--rounded" key={comment_id}>
 				<p className="Article--spread">
 					by {author} | {date} {time.slice(0, 5)} |{" "}
-					<i className="fas fa-arrow-up"></i> {votes} {" "}
+					<i className="fas fa-arrow-up"></i> {votes}{" "}
 					{author === user.username ? (
-						<span className="Article--spread button delete" onClick={()=>handleDelete(comment_id)}>delete</span>
+						<span
+							className="Article--spread button delete"
+							onClick={() => handleDelete(comment_id)}>
+							delete
+						</span>
 					) : null}
 				</p>
 				<p>{body}</p>
@@ -53,25 +60,35 @@ const Comments = (props) => {
 		);
 	};
 
-    if (isErr) {
+	if (isErr) {
 		return <p>connection error...</p>;
 	}
 
-	return isLoading? (<button className="Comments__button">loading comments...</button>):(
+	return isLoading ? (
+		<p>loading comments...</p>
+	) : (
 		<div id="comments">
-			<button className="Comments__button" onClick={toggleOpen}>
+			<button
+				className="Comments__button text--pink no-border--rounded"
+				onClick={toggleOpen}>
 				{isOpen ? "hide comments " : "show comments"}
 			</button>
 			{isOpen ? (
 				<form className="form" onSubmit={(e) => handleSubmit(e)}>
 					<textarea
-                        rows="4"
-                        wrap="soft" maxLength="400"
-                        id="comments__input"
+						rows="4"
+						wrap="soft"
+						maxLength="400"
+						id="comments__input"
+						className="text--white"
 						value={currentComment}
 						onChange={(e) => handleChange(e)}
-                        required></textarea>
-					<button className="Comments__button" type="submit">post</button>
+						required></textarea>
+					<button
+						className="Comments__button text--pink no-border--rounded"
+						type="submit">
+						post
+					</button>
 				</form>
 			) : null}
 			{isOpen ? commentsList.map(formatComment) : null}

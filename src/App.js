@@ -1,12 +1,12 @@
-//errors
-//loading
-//reading list 
-//pagination
-//login - user validation
-//reducers
-//refactor
-//themes
-//responsivity
+/*
+to do
+pagination
+login - user validation
+reducers
+refactor
+themes
+responsivity
+*/
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -17,7 +17,7 @@ import { Nav, List, Article, ReadingList, Profile } from "./components";
 function App() {
 	return (
 		<BrowserRouter>
-			<div className="App">
+			<div className="App no-border--rounded">
 				<Nav />
 				<Routes>
 					<Route path="/" element={<List />} />

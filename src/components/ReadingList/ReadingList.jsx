@@ -14,9 +14,9 @@ const ReadingList = () => {
 	};
 
 	return readingList.length > 0? (
-		<div className="main-section">{readingList.map(articleObj => <ReadingListCard key={articleObj.article_id}deleteArt={deleteArt} articleObj={articleObj}/>)}</div>
+		<div className="main-section no-border--rounded">{readingList.map(articleObj => <ReadingListCard className="no-border--rounded" key={articleObj.article_id}deleteArt={deleteArt} articleObj={articleObj}/>)}</div>
 	):(
-        <div className="main-section">Your reading list is empty...</div>
+        <div className="main-section no-border--rounded">Your reading list is empty...</div>
     )
 };
 
