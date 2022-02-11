@@ -28,8 +28,8 @@ export function getComments(id) {
 	});
 }
 
-export function addLike(id) {
-	return newsApi.patch(`/articles/${id}`, { inc_votes: 1 }).then((res) => {
+export function editLikes(id, inc) {
+	return newsApi.patch(`/articles/${id}`, { inc_votes: `${inc}` }).then((res) => {
 		return res.data;
 	});
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { getComments, addComment, deleteComment } from "../../utils/api";
 import { UserContext } from "../../contexts/User";
+import { useNavigate } from "react-router-dom";
 
 const Comments = (props) => {
 	const { user } = useContext(UserContext);
@@ -9,7 +10,10 @@ const Comments = (props) => {
 	const [currentComment, setCurrentComment] = useState("");
 	const [isLoading, setIsLoading] = useState(true);
 	const [isErr, setIsErr] = useState(false);
-
+	const [isCommentErr, setIsCommentErr] = useState(false);
+	const [isPostingComment, setIsPostingComment] = useState(false);
+	const navigate = useNavigate();
+    
 	useEffect(() => {
 		getComments(id)
 			.then((res) => {
@@ -25,21 +29,24 @@ const Comments = (props) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		setIsPostingComment(true);
 		addComment(id, user.username, currentComment)
 			.then((res) => {
 				setCommentsList((curr) => [res, ...curr]);
+				setCurrentComment("");
+				setIsPostingComment(false);
 			})
-			.catch(() => setIsErr(true));
-
-		setCurrentComment("");
+			.catch(() => setIsCommentErr(true));
 	};
 
 	const handleDelete = (id) => {
 		setCommentsList((curr) => curr.filter((c) => c.comment_id !== id));
-		deleteComment(id).catch(() => setIsErr(true));
+		deleteComment(id).catch(() => setIsCommentErr(true));
 	};
 
 	const formatComment = (commentObj) => {
+		//refactor!!!!!!!!!!!
+
 		const { comment_id, votes, created_at, author, body } = commentObj;
 		const [date, time] = created_at.split("T");
 		return (
@@ -51,7 +58,7 @@ const Comments = (props) => {
 					<i className="fas fa-arrow-up"></i> {votes}{" "}
 					{author === user.username ? (
 						<span
-							className="Article--spread button delete"
+							className="Article--spread button text--pink delete"
 							onClick={() => handleDelete(comment_id)}>
 							delete
 						</span>
@@ -90,11 +97,16 @@ const Comments = (props) => {
 						<button
 							className="Comments__button text--pink no-border--rounded background--white"
 							type="submit">
-							post
+							{isPostingComment ? "posting..." : "post"}
 						</button>
 					</form>
-				) : null
+				) : (
+					<p className="Article--spread text--pink button" onClick={()=>navigate('/profile')}>
+						please log in or create an account to leave a comment...
+					</p>
+				)
 			) : null}
+			{isCommentErr ? <p>unable to update comments...</p> : null}
 			{isOpen ? commentsList.map(formatComment) : null}
 		</div>
 	);

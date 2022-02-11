@@ -7,7 +7,7 @@ import ArtCard from "./ArtCard";
 const List = () => {
 	const { topic } = useParams();
 	const [isLoading, setIsLoading] = useState(true);
-	const [isErr, setIsErr] = useState(false);
+	const [error, setError] = useState(false);
 	const [list, setList] = useState([]);
 	const [query, setQuery] = useState({
 		topic: topic,
@@ -19,10 +19,15 @@ const List = () => {
 		getArticlesList({ topic: topic })
 			.then((res) => {
 				setList(res);
+				setError(null);
 				setIsLoading(false);
 			})
-			.catch(() => {
-				setIsErr(true);
+			.catch((err) => {
+				if (err.response && err.response.status === 404) {
+					setError("not found");
+				} else {
+					setError("connection error");
+				}
 			});
 	}, [topic]);
 
@@ -38,51 +43,51 @@ const List = () => {
 				setList(res);
 			})
 			.catch(() => {
-				setIsErr(true);
+				setError(true);
 			});
 	};
 
-	if (isErr) {
-		return <p className="main-section">connection error...</p>;
+	if (error) {
+		return <p className="main-section no-border--rounded">{error}</p>;
+	} else {
+		return isLoading ? (
+			<p className="no-border--rounded">loading...</p>
+		) : (
+			<div className="main-section no-border--rounded">
+				<span>
+					<label htmlFor="sort_by">sort by </label>
+					<select
+						className="queries no-border--rounded text--purple background--white"
+						name="sort_by"
+						onChange={handleChange}>
+						<option value="created_at">date posted</option>
+						<option value="author">author</option>
+						<option value="title">title</option>
+						<option value="topic">topic</option>
+						<option value="votes">votes</option>
+						<option value="comment_count">comments</option>
+					</select>
+					<select
+						className="queries no-border--rounded text--purple background--white"
+						name="order"
+						onChange={handleChange}>
+						<option value="desc">desc</option>
+						<option value="asc">asc</option>
+					</select>
+					<button
+						className="queries no-border--rounded text--purple background--white"
+						id="button"
+						onClick={() => handleSubmit()}>
+						go
+					</button>
+				</span>
+
+				{list.map((art) => {
+					return <ArtCard key={art.article_id} articleObj={art} />;
+				})}
+			</div>
+		);
 	}
-
-	return isLoading ? (
-		<p className="no-border--rounded">loading...</p>
-	) : (
-		<div className="main-section no-border--rounded">
-			<span>
-				<label htmlFor="sort_by">sort by </label>
-				<select
-					className="queries no-border--rounded text--purple background--white"
-					name="sort_by"
-					onChange={handleChange}>
-					<option value="created_at">date posted</option>
-					<option value="author">author</option>
-					<option value="title">title</option>
-					<option value="topic">topic</option>
-					<option value="votes">votes</option>
-					<option value="comment_count">comments</option>
-				</select>
-				<select
-					className="queries no-border--rounded text--purple background--white"
-					name="order"
-					onChange={handleChange}>
-					<option value="desc">desc</option>
-					<option value="asc">asc</option>
-				</select>
-				<button
-					className="queries no-border--rounded text--purple background--white"
-					id="button"
-					onClick={() => handleSubmit()}>
-					go
-				</button>
-			</span>
-
-			{list.map((art) => {
-				return <ArtCard key={art.article_id} articleObj={art} />;
-			})}
-		</div>
-	);
 };
 
 export default List;

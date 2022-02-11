@@ -11,16 +11,23 @@ const Article = () => {
 	const { article_id } = useParams();
 	const [isOpen, setIsOpen] = useState(false); // comments section
 	const [isLoading, setIsLoading] = useState(true);
-	const [isErr, setIsErr] = useState(false);
+	const [error, setError] = useState(false);
 	const toggleOpen = () => setIsOpen((currOpen) => !currOpen);
 
 	useEffect(() => {
 		getArticle(article_id)
 			.then((res) => {
 				setArticleObj(res);
+				setError(null);
 				setIsLoading(false);
 			})
-			.catch(() => setIsErr(true));
+			.catch((err) => {
+				if (err.response && err.response.status === 404) {
+					setError("not found");
+				} else {
+					setError("connection error");
+				}
+			});
 	}, [article_id]);
 
 	const { title, body, votes, topic, author, created_at, comment_count } =
@@ -28,8 +35,8 @@ const Article = () => {
 
 	const [date, time] = created_at ? created_at.split("T") : ["", ""]; //FORMATTING TIMESTAMP - was having some absolutely crazi issues with using split+react! this was only solution
 
-	if (isErr) {
-		return <p className="main-section">connection error...</p>;
+	if (error) {
+		return <p className="main-section no-border--rounded">{error}</p>;
 	}
 
 	return isLoading ? (
@@ -37,7 +44,9 @@ const Article = () => {
 	) : (
 		<div className="main-section no-border--rounded">
 			<div className="Article__body no-border--rounded">
-				<p className="Article__title no-border--rounded background--white">{title}</p>
+				<p className="Article__title no-border--rounded background--white">
+					{title}
+				</p>
 				<p className="Article--spread no-border--rounded background--white">
 					by {author} | {date} {time.slice(0, 5)} |{" "}
 					<Link
@@ -51,7 +60,8 @@ const Article = () => {
 						className="Article--spread text--pink"
 						onClick={toggleOpen}
 						href="#comments">
-						<i className="far fa-comment"></i> {comment_count}
+						<i className="far fa-comment"></i>
+						{comment_count}
 					</a>
 				</p>
 				<p className="Article--alight-left no-border--rounded background--white">

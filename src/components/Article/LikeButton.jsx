@@ -1,28 +1,29 @@
 import { useState } from "react";
-import { addLike } from "../../utils/api";
+import { editLikes } from "../../utils/api";
 
 export const LikeButton = ({ likes, id }) => {
 	const [likeChange, setlikeChange] = useState(0);
 	const [toggle, setToggle] = useState(true);
-	
-	const giveLikes = () => {
-		setToggle(false);
-		setlikeChange((currChange) => currChange + 1);
-		addLike(id).catch(() => {
+
+	const changeLikes = (inc) => {
+		setToggle(toggle => !toggle);
+		setlikeChange((currChange) => currChange + inc);
+
+		editLikes(id, inc).catch(() => {
 			setlikeChange((currChange) => currChange - 1);
 		});
 	};
 
 	return toggle ? (
 		<span
-			className="text--pink"
-			onClick={() => {
-				giveLikes();
+			className="button text--pink"
+			onClick={() =>{
+				changeLikes(1);
 			}}>
-			<i className="fas fa-arrow-up"></i> {likes + likeChange}+
+			<i className="fas fa-arrow-up"></i> {likes + likeChange}
 		</span>
 	) : (
-		<span className="button">
+		<span className="button text--purple" onClick={() => changeLikes(-1)}>
 			<i className="fas fa-arrow-up"></i> {likes + likeChange}
 		</span>
 	);
