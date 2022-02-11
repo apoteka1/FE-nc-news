@@ -1,31 +1,36 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #14e1ff;
-	font-family: "Xanh Mono", monospace;
-	color: #5c4bff;
+	background-color: #76edff;
+	font-family: "Lato";
+	color: #4437b8;
 }
-
+h1 {
+	font-family: "Xanh Mono", monospace;
+}
 h3 {
 	margin: 0;
 }
 .App {
 	text-align: center;
+
 	display: flex;
 	flex-direction: column;
 	padding: 0.5vw 0.5vw;
+	justify-content: center;
+	align-content: center;
 }
 
 .main-section {
 	padding: 0.8vw;
 	margin: 0.5vw;
-	background-color: #ff7ad6;
-	justify-content: space-around;
+	background-color: #ffecfb;
+	justify-content: centre;
 }
 
 .no-border--rounded {
 	border: none;
-	border-radius: 2.4px;
+	border-radius: 8px;
 }
 
 .text--pink {
@@ -45,15 +50,15 @@ h3 {
 }
 
 .background--purple {
-	background-color: #5c4bff;
+	background-color: #5f3a41;
 }
 
 .background--pink {
-	background-color: #ff7ad6;
+	background-color: #ffecfb;
 }
 
 textarea {
-	border: 1px solid #fdfff2;
-	background-color: #ff7ad6;
-	border-radius: 2.4px;
+	border: 3px solid #fdfff2;
+	background-color: #ffecfb;
+	border-radius: 8px;
 }

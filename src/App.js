@@ -12,7 +12,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
-import { Nav, List, Article, ReadingList, Profile } from "./components";
+import { Nav, List, Article, ReadingList, Profile, BadUrl } from "./components";
 
 function App() {
 	return (
@@ -25,6 +25,7 @@ function App() {
 					<Route path="/articles/:article_id" element={<Article />} />
 					<Route path="/reading-list" element={<ReadingList />} />
 					<Route path="/profile" element={<Profile />} />
+                    <Route path="/*" element={<BadUrl/>}/>
 				</Routes>
 			</div>
 		</BrowserRouter>

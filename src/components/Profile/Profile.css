@@ -1,0 +1,32 @@
+#profile-pic {
+    
+	width: 66vw;
+	height: 66vw;
+	border-radius: 50%;
+	border: 3px;
+	object-fit:scale-down;
+}
+
+.profile-block {
+	margin: 2px;
+	padding: 2vw;
+}
+
+.logout-button:hover {
+	cursor: pointer;
+}
+
+.logout-button {
+	margin: 3px;
+	padding: 3px;
+	width: 25%;
+}
+
+.profile--card {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    width:min-content;
+    
+}

@@ -17,7 +17,7 @@ const ReadingList = () => {
 		<div className="main-section no-border--rounded">
 			{readingList.map((articleObj) => (
 				<ReadingListCard
-					className="no-border--rounded"
+					className="no-border--rounded "
 					key={articleObj.article_id}
 					deleteArt={deleteArt}
 					articleObj={articleObj}

@@ -14,11 +14,11 @@ const TopicsMenu = () => {
 	}, []);
 
 	if (isErr) {
-		return <>connection error...</>;
+		return <p className="main-section">connection error...</p>;
 	}
 
 	return (
-		<div className="nav__main-block no-border--rounded">
+		<div className="nav__main-block no-border--rounded background--pink">
 			{topicsList.map((topic) => {
 				const { slug } = topic;
 				return (

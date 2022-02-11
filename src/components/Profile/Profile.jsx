@@ -1,22 +1,34 @@
-// import { useState, useEffect, useContext } from "react";
-// import { UserContext } from "../../contexts/User";
-// import { getUser } from "../utils/api";
-// import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../contexts/User";
+import "./Profile.css";
 
 const Profile = () => {
-return <p>under construction...</p>
+	const { user, setUser } = useContext(UserContext);
+	const logOut = () => {
+		setUser({ username: "", name: "", avatar_url: "" });
+	};
 
-	// const { user, setUser} = useContext(UserContext);
-
-	// const [userNameInput, setUserNameInput] = useState("");
-	// const [isErr, setIsErr] = useState(false);
+	return user.username ? (
+		<div className="main-section no-border--rounded profile--card">
+			<button
+				onClick={() => logOut()}
+				className="logout-button no-border--rounded background--white text--pink ">
+				logout
+			</button>
+			<p className="background--white profile-block no-border--rounded ">
+				{user.name}
+				<br></br>
+				<img id="profile-pic" src={user.avatar_url} />
+				<br></br>
+				username: {user.username}
+			</p>
+		</div>
+	) : (
+		<div className="main-section no-border--rounded">logged out...</div>
+	);
 
 	// const handleChange = (e) => {
 	// 	setUserNameInput(e.target.value);
-	// };
-
-	// const logOut = () => {
-	// 	setUser(null);
 	// };
 
 	// const handleSubmit = (e) => {
@@ -33,7 +45,7 @@ return <p>under construction...</p>
 
 	// return isLoggedIn ? (
 	// 	<div>
-    //         <br/>
+	//         <br/>
 	// 		<button onClick={() => logOut()}>logout</button>
 	// 		<p>username: {user.username}</p>
 	// 		<img
@@ -46,7 +58,7 @@ return <p>under construction...</p>
 	// 	</div>
 	// ) : (
 	// 	<div>
-    //          <br/>
+	//          <br/>
 	// 		<form onSubmit={handleSubmit}>
 	// 			<input
 	// 				id="profile__login"

@@ -5,15 +5,16 @@
 	align-items: center;
 	flex-grow: 3;
 	flex-wrap: wrap;
-	background-color: #ff7ad6;
 	margin: 0.8vw;
 }
 
 .nav__link h1 {
 	text-decoration: none;
-	margin: 0;
+	margin: 0 0 0 2.1vw;
+    
 	text-align: center;
 	font-style: italic;
+    justify-content: center;
 }
 
 .nav__links-block {
@@ -36,7 +37,6 @@
 	align-items: center;
 
 	flex-grow: 1;
-	background-color: #fdfff2;
 }
 .nav__link p {
 	margin: 0;

@@ -26,9 +26,9 @@ const ArtCard = (props) => {
 	}
 
 	return (
-		<div className="ArtCard__card no-border--rounded">
+		<div className="ArtCard__card no-border--rounded background--white">
 			<p className="ArtCard__details no-border--rounded">
-				By {author} | {date} {time.slice(0, 5)} |&nbsp;{topic}
+				by {author} | {date} {time.slice(0, 5)} |&nbsp;{topic}
 				&nbsp;|&nbsp;<i className="fas fa-arrow-up"></i> {votes}{" "}
 				<i className="far fa-comment"></i> {comment_count}
 			</p>
@@ -40,16 +40,16 @@ const ArtCard = (props) => {
 					{title}
 				</Link>
 			</div>
-			<p className="ArtCard__details no-border--rounded">
+			
 				{!isOnRList ? (
-					<p className="button" onClick={() => AddToList(articleObj)}>
+					<p className="button ArtCard__details text--pink" onClick={() => AddToList(articleObj)}>
 						{" "}
 						add to reading list
 					</p>
 				) : (
-					" added to reading list"
+					<p className=" ArtCard__details ">added to reading list</p>
 				)}
-			</p>
+			
 		</div>
 	);
 };

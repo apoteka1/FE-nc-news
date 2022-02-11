@@ -19,7 +19,7 @@ const ReadingListCard = (props) => {
 	return (
 		<div
 			key={article_id + "reading-list"}
-			className="ArtCard__card no-border--rounded">
+			className="ArtCard__card no-border--rounded background--white">
 			<div className="no-decs">
 				<Link
 					className="text--purple"
@@ -36,7 +36,7 @@ const ReadingListCard = (props) => {
 				{comment_count} |&nbsp;
 				<i
 					onClick={() => deleteArt(article_id)}
-					className="fas fa-times button"></i>
+					className="fas fa-times button text--pink"></i>
 			</p>
 		</div>
 	);

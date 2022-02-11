@@ -4,7 +4,7 @@ import { addLike } from "../../utils/api";
 export const LikeButton = ({ likes, id }) => {
 	const [likeChange, setlikeChange] = useState(0);
 	const [toggle, setToggle] = useState(true);
-	console.log(id);
+	
 	const giveLikes = () => {
 		setToggle(false);
 		setlikeChange((currChange) => currChange + 1);

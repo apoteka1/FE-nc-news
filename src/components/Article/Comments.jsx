@@ -43,7 +43,9 @@ const Comments = (props) => {
 		const { comment_id, votes, created_at, author, body } = commentObj;
 		const [date, time] = created_at.split("T");
 		return (
-			<div className="comment no-border--rounded" key={comment_id}>
+			<div
+				className="comment no-border--rounded background--white"
+				key={comment_id}>
 				<p className="Article--spread">
 					by {author} | {date} {time.slice(0, 5)} |{" "}
 					<i className="fas fa-arrow-up"></i> {votes}{" "}
@@ -61,7 +63,7 @@ const Comments = (props) => {
 	};
 
 	if (isErr) {
-		return <p>connection error...</p>;
+		return <p className="main-section">connection error...</p>;
 	}
 
 	return isLoading ? (
@@ -69,27 +71,29 @@ const Comments = (props) => {
 	) : (
 		<div id="comments">
 			<button
-				className="Comments__button text--pink no-border--rounded"
+				className="Comments__button text--pink no-border--rounded background--white"
 				onClick={toggleOpen}>
 				{isOpen ? "hide comments " : "show comments"}
 			</button>
 			{isOpen ? (
-				<form className="form" onSubmit={(e) => handleSubmit(e)}>
-					<textarea
-						rows="4"
-						wrap="soft"
-						maxLength="400"
-						id="comments__input"
-						className="text--white"
-						value={currentComment}
-						onChange={(e) => handleChange(e)}
-						required></textarea>
-					<button
-						className="Comments__button text--pink no-border--rounded"
-						type="submit">
-						post
-					</button>
-				</form>
+				user.username ? (
+					<form className="form" onSubmit={(e) => handleSubmit(e)}>
+						<textarea
+							rows="4"
+							wrap="soft"
+							maxLength="400"
+							id="comments__input"
+							className="text--pink"
+							value={currentComment}
+							onChange={(e) => handleChange(e)}
+							required></textarea>
+						<button
+							className="Comments__button text--pink no-border--rounded background--white"
+							type="submit">
+							post
+						</button>
+					</form>
+				) : null
 			) : null}
 			{isOpen ? commentsList.map(formatComment) : null}
 		</div>

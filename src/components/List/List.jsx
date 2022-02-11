@@ -43,7 +43,7 @@ const List = () => {
 	};
 
 	if (isErr) {
-		return <p className="no-border--rounded">connection error...</p>;
+		return <p className="main-section">connection error...</p>;
 	}
 
 	return isLoading ? (
@@ -53,7 +53,7 @@ const List = () => {
 			<span>
 				<label htmlFor="sort_by">sort by </label>
 				<select
-					className="queries no-border--rounded"
+					className="queries no-border--rounded text--purple background--white"
 					name="sort_by"
 					onChange={handleChange}>
 					<option value="created_at">date posted</option>
@@ -64,14 +64,14 @@ const List = () => {
 					<option value="comment_count">comments</option>
 				</select>
 				<select
-					className="queries no-border--rounded"
+					className="queries no-border--rounded text--purple background--white"
 					name="order"
 					onChange={handleChange}>
 					<option value="desc">desc</option>
 					<option value="asc">asc</option>
 				</select>
 				<button
-					className="queries no-border--rounded"
+					className="queries no-border--rounded text--purple background--white"
 					id="button"
 					onClick={() => handleSubmit()}>
 					go

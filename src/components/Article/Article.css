@@ -1,5 +1,5 @@
 .Article__body p {
-	background-color: #fdfff2;
+	
 	padding: 2.5vw;
 	margin: 0.8vw;
 }
@@ -24,7 +24,7 @@
 }
 
 .comment {
-	background-color: #fdfff2;
+	
 	margin: 2px;
 	padding: 2vw;
 	text-align: left;
@@ -34,7 +34,7 @@
 
 .Comments__button {
 	font-family: inherit;
-	background-color: #fdfff2;
+	
 	margin: 3px;
 	padding: 3px;
 	width: 25%;
@@ -49,7 +49,7 @@
 }
 
 #comments__input {
-	font-family: "Xanh Mono", monospace;
+	font-family: "Lato";
 	word-wrap: break-word;
 	word-break: break-all;
 	resize: none;

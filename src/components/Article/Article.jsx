@@ -29,7 +29,7 @@ const Article = () => {
 	const [date, time] = created_at ? created_at.split("T") : ["", ""]; //FORMATTING TIMESTAMP - was having some absolutely crazi issues with using split+react! this was only solution
 
 	if (isErr) {
-		return <p>connection error...</p>;
+		return <p className="main-section">connection error...</p>;
 	}
 
 	return isLoading ? (
@@ -37,9 +37,9 @@ const Article = () => {
 	) : (
 		<div className="main-section no-border--rounded">
 			<div className="Article__body no-border--rounded">
-				<p className="Article__title no-border--rounded">{title}</p>
-				<p className="Article--spread no-border--rounded">
-					By {author} | {date} {time.slice(0, 5)} |{" "}
+				<p className="Article__title no-border--rounded background--white">{title}</p>
+				<p className="Article--spread no-border--rounded background--white">
+					by {author} | {date} {time.slice(0, 5)} |{" "}
 					<Link
 						className="Article--spread text--pink"
 						to={`/articles/topics/${topic}`}>
@@ -54,7 +54,7 @@ const Article = () => {
 						<i className="far fa-comment"></i> {comment_count}
 					</a>
 				</p>
-				<p className="Article--alight-left no-border--rounded">
+				<p className="Article--alight-left no-border--rounded background--white">
 					{body}
 				</p>
 			</div>
