@@ -2,7 +2,6 @@
 to do
 pagination
 login - user validation
-reducers
 refactor
 themes
 responsivity
@@ -25,7 +24,7 @@ function App() {
 					<Route path="/articles/:article_id" element={<Article />} />
 					<Route path="/reading-list" element={<ReadingList />} />
 					<Route path="/profile" element={<Profile />} />
-                    <Route path="/*" element={<BadUrl/>}/>
+					<Route path="/*" element={<BadUrl />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

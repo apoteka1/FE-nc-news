@@ -1,7 +1,9 @@
 .ArtCard__card {
-	margin: 2px;
+	margin: 0 auto;
 	padding: 2vw;
 	text-decoration: none;
+  max-width: 500px;
+  margin-top: 3px;
 }
 .ArtCard__details {
 	font-size: 12px;

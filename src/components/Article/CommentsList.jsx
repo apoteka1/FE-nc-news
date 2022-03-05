@@ -3,7 +3,7 @@ import { getComments, addComment, deleteComment } from "../../utils/api";
 import { UserContext } from "../../contexts/User";
 import { useNavigate } from "react-router-dom";
 
-const Comments = (props) => {
+const CommentsList = (props) => {
 	const { user } = useContext(UserContext);
 	const [commentsList, setCommentsList] = useState([]);
 	const { isOpen, toggleOpen, id } = props;
@@ -112,4 +112,4 @@ const Comments = (props) => {
 	);
 };
 
-export default Comments;
+export default CommentsList;
