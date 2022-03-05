@@ -1,8 +1,8 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #76edff;
-	font-family: "Lato";
+	background-color: #dfdfdf;
+	font-family: 'Questrial', sans-serif;
 	color: #4437b8;
 }
 h1 {
@@ -24,13 +24,16 @@ h3 {
 .main-section {
 	padding: 0.8vw;
 	margin: 0.5vw;
-	background-color: #ffecfb;
-	justify-content: centre;
+	background-color: #e4e6ff;
+  align-content: center;
+	justify-items: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .no-border--rounded {
 	border: none;
-	border-radius: 8px;
+	border-radius: 2px;
 }
 
 .text--pink {
@@ -46,7 +49,7 @@ h3 {
 }
 
 .background--white {
-	background-color: #fdfff2;
+	background-color: #ffffff;
 }
 
 .background--purple {
@@ -54,11 +57,11 @@ h3 {
 }
 
 .background--pink {
-	background-color: #ffecfb;
+	background-color: #e4e6ff;
 }
 
 textarea {
-	border: 3px solid #fdfff2;
-	background-color: #ffecfb;
-	border-radius: 8px;
+	border: none;
+	background-color: #ffffff;
+	border-radius: 2px;
 }

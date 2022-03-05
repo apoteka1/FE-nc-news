@@ -2,7 +2,7 @@ import "./Article.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticle } from "../../utils/api";
-import Comments from "./Comments";
+import CommentsList from "./CommentsList";
 import { LikeButton } from "./LikeButton";
 import { Link } from "react-router-dom";
 
@@ -33,7 +33,7 @@ const Article = () => {
 	const { title, body, votes, topic, author, created_at, comment_count } =
 		articleObj;
 
-	const [date, time] = created_at ? created_at.split("T") : ["", ""]; //FORMATTING TIMESTAMP - was having some absolutely crazi issues with using split+react! this was only solution
+	const [date, time] = created_at ? created_at.split("T") : ["", ""]; //FORMATTING TIMESTAMP - some weird issues with using .split() +react, this was only solution.
 
 	if (error) {
 		return <p className="main-section no-border--rounded">{error}</p>;
@@ -69,7 +69,7 @@ const Article = () => {
 				</p>
 			</div>
 			<div className="Article__comments">
-				<Comments
+				<CommentsList
 					toggleOpen={toggleOpen}
 					isOpen={isOpen}
 					id={article_id}
