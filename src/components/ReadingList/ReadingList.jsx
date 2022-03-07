@@ -14,7 +14,7 @@ const ReadingList = () => {
 	};
 
 	return readingList.length > 0 ? (
-		<div className="main-section no-border--rounded">
+		<div className="main-section no-border--rounded" id="reading-list">
 			{readingList.map((articleObj) => (
 				<ReadingListCard
 					className="no-border--rounded "
