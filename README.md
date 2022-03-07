@@ -7,7 +7,7 @@ Users can publish, rate and discuss articles, as well as curate their own bespok
 
 __Links__
 
-Deployed version - 
+Deployed version - https://nc-news-apoteka.netlify.app/
 
 Back-end repository - https://github.com/apoteka1/be-nc-news.git
 
