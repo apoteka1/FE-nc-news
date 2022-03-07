@@ -15,11 +15,14 @@ __To run locally:__
 
 - Requires Node v17 +
 
-- To run locally 
-    - run 'git clone https://github.com/apoteka1/FE-nc-news.git' in terminal in desired directory.
-    - cd into repo.
-    - run 'npm install' to install dependencies.
-    - run 'npm start' to run in your browser.
+To set up repo locally:
+
+- run ```git clone https://github.com/apoteka1/FE-nc-news.git``` in terminal in desired directory.
+- cd into repo.
+- run ```npm install``` to install dependencies.
+
+To view in browser:
+- run ```npm start``` in repo root.
 
 
 
