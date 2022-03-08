@@ -81,10 +81,11 @@ const List = () => {
 						go
 					</button>
 				</span>
-
-				{list.map((art) => {
-					return <ArtCard key={art.article_id} articleObj={art} />;
-				})}
+				<div id="list">
+					{list.map((art) => {
+						return <ArtCard key={art.article_id} articleObj={art} />;
+					})}
+				</div>
 			</div>
 		);
 	}

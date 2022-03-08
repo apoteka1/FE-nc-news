@@ -1,11 +1,3 @@
-/*
-to do
-pagination
-login - user validation
-refactor
-themes
-responsivity
-*/
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

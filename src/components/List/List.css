@@ -1,23 +1,23 @@
 .ArtCard__card {
-	margin: 0 auto;
-	padding: 2vw;
+	margin: 5px auto;
+	padding: 10px;
 	text-decoration: none;
-  max-width: 500px;
-  margin-top: 3px;
+  display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+  
 }
 .ArtCard__details {
 	font-size: 12px;
 }
 
-.ArtCard__card p {
-	margin: 1vw;
-}
-
 .no-decs a {
 	text-decoration: none;
-	margin: 0;
+
 	text-align: center;
 	font-style: italic;
+  margin-top: 5px;
 }
 
 .queries {
@@ -34,4 +34,20 @@
 
 .art-card__title {
 	font-size: 18px;
+}
+
+#top {
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 850px) {
+	#list {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+    column-gap: 5px;
+		align-items: center;
+		justify-items: center;
+	}
 }

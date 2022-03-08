@@ -27,7 +27,7 @@ const ArtCard = (props) => {
 
 	return (
 		<div className="ArtCard__card no-border--rounded background--white">
-			<p className="ArtCard__details no-border--rounded">
+			<p className="ArtCard__details no-border--rounded top" id="top">
 				by {author} | {date} {time.slice(0, 5)} |&nbsp;{topic}
 				&nbsp;|&nbsp;<i className="fas fa-arrow-up"></i> {votes}{" "}
 				<i className="far fa-comment"></i> {comment_count}

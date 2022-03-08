@@ -1,13 +1,29 @@
 .ArtCard__details {
-	font-size: 12px;
+	font-size: 14px;
+	margin: 0;
 }
 
 .ArtCard__card p {
-	margin: 1vw;
+	margin: 0;
+	margin-top: 5px;
 }
 
 #button {
 	padding: 2px 7px;
 }
 
-
+@media screen and (min-width: 850px) {
+	#reading-list {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+    column-gap: 5px;
+		align-items: center;
+		justify-items: center;
+	}
+	.ArtCard__card {
+		width: 47%;
+		height: 65px;
+	}
+}
