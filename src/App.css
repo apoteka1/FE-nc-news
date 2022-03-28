@@ -1,42 +1,30 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #dfdfdf;
-	font-family: 'Questrial', sans-serif;
+	background-color: #ffffff;
+	font-family: "helvetica";
 	color: #4437b8;
-}
-h1 {
-	font-family: "Xanh Mono", monospace;
-}
-h3 {
-	margin: 0;
-}
-.App {
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	padding: 0.5vw 0.5vw;
-	justify-content: center;
-	align-content: center;
 }
 
 .main-section {
-	padding: 0.8vw;
-	margin: 0.5vw;
-	background-color: #e4e6ff;
-  align-content: center;
-	justify-items: center;
-  align-items: center;
-  justify-content: center;
+    padding: 20px;
 }
 
+h1 {
+	font-family: "Questrial";
+	text-shadow: #ff7ad6 10px;
+}
+h3 {
+	font-family: "Questrial";
+	margin: 0;
+}
 .no-border--rounded {
 	border: none;
 	border-radius: 2px;
 }
 
 .text--pink {
-	color: #ff7ad6;
+	color: #26a8ff8f;
 }
 
 .text--white {
@@ -44,7 +32,8 @@ h3 {
 }
 
 .text--purple {
-	color: #5c4bff;
+	color: #26a8ff;
+	font-family: "Questrial", sans-serif;
 }
 
 .background--white {
@@ -56,7 +45,7 @@ h3 {
 }
 
 .background--pink {
-	background-color: #e4e6ff;
+	background-color: #ffffff;
 }
 
 textarea {

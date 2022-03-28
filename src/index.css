@@ -1,0 +1,13 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff;
+	font-family: "helvetica";
+	color: #4437b8;
+    text-align: center;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	justify-content: center;
+	align-content: center;
+}

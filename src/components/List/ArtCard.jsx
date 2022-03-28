@@ -5,15 +5,8 @@ import { ReadingListContext } from "../../contexts";
 const ArtCard = (props) => {
 	const { readingList, setReadingList } = useContext(ReadingListContext);
 	const { articleObj } = props;
-	const {
-		article_id,
-		title,
-		votes,
-		author,
-		created_at,
-		comment_count,
-		topic,
-	} = articleObj;
+	const { article_id, title, votes, author, created_at, comment_count, topic } =
+		articleObj;
 	const [date, time] = created_at.split("T");
 	const [isOnRList, setIsOnRList] = useState(false);
 
@@ -40,16 +33,18 @@ const ArtCard = (props) => {
 					{title}
 				</Link>
 			</div>
-			
-				{!isOnRList ? (
-					<p className="button ArtCard__details text--pink" onClick={() => AddToList(articleObj)}>
-						{" "}
-						add to reading list
-					</p>
-				) : (
-					<p className=" ArtCard__details ">added to reading list</p>
-				)}
-			
+
+			{!isOnRList ? (
+				<p
+					className="button ArtCard__details text--pink"
+					onClick={() => AddToList(articleObj)}>
+					<i className="far fa-bookmark"></i>
+				</p>
+			) : (
+				<p className=" ArtCard__details text--pink">
+					<i className="fa fa-bookmark"></i>
+				</p>
+			)}
 		</div>
 	);
 };
