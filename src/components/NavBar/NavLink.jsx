@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-export const NavLink = ({ path, text }) => {
+export const NavLink = ({ path, image }) => {
 	return (
-		<div className="nav__link text--purple no-border--rounded background--white">
-			<Link className="text--purple" to={path}>
-				{text}
+		<div className="nav__link">
+			<Link className="text--white" to={path}>
+				{image}
 			</Link>
 		</div>
 	);

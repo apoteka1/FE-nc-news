@@ -9,7 +9,7 @@ const Profile = () => {
 	};
 
 	return user.username ? (
-		<div className="main-section no-border--rounded profile--card">
+		<div className="main-section profile--card">
 			<button
 				onClick={() => logOut()}
 				className="logout-button no-border--rounded background--white text--pink ">

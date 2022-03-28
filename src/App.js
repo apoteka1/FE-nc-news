@@ -8,7 +8,7 @@ import { Nav, List, Article, ReadingList, Profile, BadUrl } from "./components";
 function App() {
 	return (
 		<BrowserRouter>
-			<div className="App no-border--rounded">
+			<div>
 				<Nav />
 				<Routes>
 					<Route path="/" element={<List />} />
