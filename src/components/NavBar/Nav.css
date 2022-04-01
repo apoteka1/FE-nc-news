@@ -14,8 +14,8 @@
 	font-size: 80px;
 	font-style: italic;
 	margin: 0;
-    padding: 0;
-	text-shadow: 4px 4px #d9ffc8
+	padding: 0;
+	text-shadow: 4px 4px #d9ffc8;
 }
 
 .nav__links-block {
@@ -34,7 +34,7 @@
 
 .nav__link:hover {
 	cursor: pointer;
-    color: #d9ffc8;
+	color: #d9ffc8;
 }
 
 .nav__link a {

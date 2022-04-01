@@ -13,7 +13,7 @@ const CommentsList = (props) => {
 	const [isCommentErr, setIsCommentErr] = useState(false);
 	const [isPostingComment, setIsPostingComment] = useState(false);
 	const navigate = useNavigate();
-    
+
 	useEffect(() => {
 		getComments(id)
 			.then((res) => {
@@ -45,8 +45,6 @@ const CommentsList = (props) => {
 	};
 
 	const formatComment = (commentObj) => {
-		//refactor!!!!!!!!!!!
-
 		const { comment_id, votes, created_at, author, body } = commentObj;
 		const [date, time] = created_at.split("T");
 		return (
@@ -101,7 +99,9 @@ const CommentsList = (props) => {
 						</button>
 					</form>
 				) : (
-					<p className="Article--spread text--pink button" onClick={()=>navigate('/profile')}>
+					<p
+						className="Article--spread text--pink button"
+						onClick={() => navigate("/profile")}>
 						please log in or create an account to leave a comment...
 					</p>
 				)

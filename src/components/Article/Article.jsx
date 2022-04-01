@@ -42,12 +42,10 @@ const Article = () => {
 	return isLoading ? (
 		<p>Loading...</p>
 	) : (
-		<div className="main-section no-border--rounded">
-			<div className="Article__body no-border--rounded">
-				<p className="Article__title no-border--rounded background--white">
-					{title}
-				</p>
-				<p className="Article--spread no-border--rounded background--white">
+		<div className="main-section  Article__body no-border--rounded">
+			<div >
+				<p className="Article__title  background--white">{title}</p>
+				<p className="Article--spread background--white">
 					by {author} | {date} {time.slice(0, 5)} |{" "}
 					<Link
 						className="Article--spread text--pink"
@@ -64,16 +62,10 @@ const Article = () => {
 						{comment_count}
 					</a>
 				</p>
-				<p className="Article--alight-left no-border--rounded background--white">
-					{body}
-				</p>
+				<p className="Article--alight-left background--white">{body}</p>
 			</div>
 			<div className="Article__comments">
-				<CommentsList
-					toggleOpen={toggleOpen}
-					isOpen={isOpen}
-					id={article_id}
-				/>
+				<CommentsList toggleOpen={toggleOpen} isOpen={isOpen} id={article_id} />
 			</div>
 		</div>
 	);

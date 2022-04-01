@@ -1,7 +1,6 @@
 .Article__body p {
-	
-	padding: 2.5vw;
-	margin: 0.8vw;
+	margin: 5px 0px;
+	word-spacing: 1px;
 }
 
 .Article--alight-left {
@@ -12,6 +11,7 @@
 .Article--spread {
 	font-size: 14px;
 	text-decoration: none;
+	padding: 6px 0px;
 }
 
 .button:hover {
@@ -21,12 +21,13 @@
 .Article__title {
 	font-style: italic;
 	font-size: 18px;
+	font-size: 24px;
+	word-spacing: 1px;
 }
 
 .comment {
-	
-	margin: 2px;
-	padding: 2vw;
+	margin: 15px auto;
+	padding: 10px;
 	text-align: left;
 	font-size: 14px;
 	word-wrap: normal;
@@ -34,7 +35,7 @@
 
 .Comments__button {
 	font-family: inherit;
-	
+
 	margin: 3px;
 	padding: 3px;
 	width: 25%;
@@ -49,12 +50,14 @@
 }
 
 #comments__input {
-	font-family: "Lato";
+	font-family: "helvetica";
 	word-wrap: break-word;
 	word-break: break-all;
 	resize: none;
 	width: 75%;
 	margin: 2px;
+	border: 1px #0e466b solid;
+	color: #0e466b;
 }
 
 .form {
@@ -75,3 +78,13 @@
 	align-content: center;
 }
 
+.Article__body {
+	width: 47%;
+	display: flex;
+	flex-direction: column;
+	margin: 0px auto;
+}
+
+#comments {
+    margin-top: 15px;
+}
