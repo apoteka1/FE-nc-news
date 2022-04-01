@@ -7,7 +7,7 @@ const ArtCard = (props) => {
 	const { articleObj } = props;
 	const { article_id, title, votes, author, created_at, comment_count, topic } =
 		articleObj;
-	const [date, time] = created_at.split("T");
+	const [date] = created_at.split("T");
 	const [isOnRList, setIsOnRList] = useState(false);
 
 	useEffect(() => {
@@ -21,9 +21,9 @@ const ArtCard = (props) => {
 	return (
 		<div className="ArtCard__card no-border--rounded background--white">
 			<p className="ArtCard__details no-border--rounded top" id="top">
-				by {author} | {date} {time.slice(0, 5)} |&nbsp;{topic}
-				&nbsp;|&nbsp;<i className="fas fa-arrow-up"></i> {votes}{" "}
-				<i className="far fa-comment"></i> {comment_count}
+				by {author} | {date} | {topic} | <i className="fas fa-arrow-up"></i>
+				{votes} <i className="far fa-comment"></i>
+				{comment_count}
 			</p>
 			<div className="no-decs  no-border--rounded">
 				<Link

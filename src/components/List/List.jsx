@@ -34,7 +34,7 @@ const List = () => {
 					setError("connection error");
 				}
 			});
-	}, []);
+	}, [topic]);
 
 	const handleChange = (e) => {
 		console.log(query);
@@ -61,9 +61,9 @@ const List = () => {
 		) : (
 			<div className="main-section no-border--rounded">
 				<span>
-					<label htmlFor="topic">topic</label>
+					<label htmlFor="topic">topic </label>
 					<select
-						className="queries no-border--rounded text--pink background--white"
+						className="queries button-select text--pink background--white"
 						name="topic"
 						onChange={handleChange}>
 						<option value="">all</option>
@@ -75,9 +75,9 @@ const List = () => {
 							);
 						})}
 					</select>
-					<label htmlFor="sort_by"> sort by</label>
+					<label htmlFor="sort_by"> sort by </label>
 					<select
-						className="queries no-border--rounded text--pink background--white"
+						className="queries button-select text--pink background--white"
 						name="sort_by"
 						onChange={handleChange}>
 						<option value="created_at">date posted</option>
@@ -88,14 +88,14 @@ const List = () => {
 						<option value="comment_count">comments</option>
 					</select>
 					<select
-						className="queries no-border--rounded text--pink background--white"
+						className="queries button-select text--pink background--white"
 						name="order"
 						onChange={handleChange}>
 						<option value="desc">desc</option>
 						<option value="asc">asc</option>
 					</select>
 					<button
-						className="queries no-border--rounded text--pink background--white"
+						className="queries button-select text--pink background--white"
 						id="button"
 						onClick={() => handleSubmit()}>
 						go
