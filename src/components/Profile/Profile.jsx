@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import {useContext } from "react";
 import { UserContext } from "../../contexts/User";
 import "./Profile.css";
 
@@ -12,7 +12,7 @@ const Profile = () => {
 		<div className="main-section profile--card">
 			<button
 				onClick={() => logOut()}
-				className="logout-button no-border--rounded background--white text--pink ">
+				className="logout-button no-border--rounded background--white text--pink button">
 				logout
 			</button>
 			<p className="background--white profile-block no-border--rounded ">

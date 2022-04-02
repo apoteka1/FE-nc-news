@@ -48,14 +48,14 @@ const Article = () => {
 				<p className="Article--spread background--white">
 					by {author} | {date} {time.slice(0, 5)} |{" "}
 					<Link
-						className="Article--spread text--pink"
+						className="Article--spread text--pink button"
 						to={`/articles/topics/${topic}`}>
 						{topic}
 					</Link>
 					&nbsp;|&nbsp;
 					<LikeButton likes={votes} id={article_id} />{" "}
 					<a
-						className="Article--spread text--pink"
+						className="Article--spread text--pink button"
 						onClick={toggleOpen}
 						href="#comments">
 						<i className="far fa-comment"></i>

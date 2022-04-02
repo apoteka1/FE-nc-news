@@ -1,19 +1,9 @@
 #profile-pic {
-    
-	width: 66vw;
-	height: 66vw;
 	border-radius: 50%;
-	border: 3px;
-	object-fit:scale-down;
-}
-
-.profile-block {
-	margin: 2px;
-	padding: 2vw;
-}
-
-.logout-button:hover {
-	cursor: pointer;
+    
+    height: 180px;
+    width: 180px;
+    object-fit: contain;
 }
 
 .logout-button {

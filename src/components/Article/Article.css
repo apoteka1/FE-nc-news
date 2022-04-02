@@ -16,6 +16,7 @@
 
 .button:hover {
 	cursor: pointer;
+    color: #d9ffc8;
 }
 
 .Article__title {
@@ -43,10 +44,11 @@
 
 .Comments__button:hover {
 	cursor: pointer;
+    color: #d9ffc8;
 }
 
 #Comments__toggle:hover {
-	cursor: pointer;
+	color: #d9ffc8;
 }
 
 #comments__input {
@@ -79,12 +81,17 @@
 }
 
 .Article__body {
-	width: 47%;
 	display: flex;
 	flex-direction: column;
 	margin: 0px auto;
 }
 
+@media screen and (min-width: 850px) {
+	.Article__body {
+		width: 47%;
+	}
+}
+
 #comments {
-    margin-top: 15px;
+	margin-top: 15px;
 }

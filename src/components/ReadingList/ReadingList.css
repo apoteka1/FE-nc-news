@@ -13,15 +13,7 @@
 }
 
 @media screen and (min-width: 850px) {
-	#reading-list {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		width: 100%;
-    column-gap: 5px;
-		align-items: center;
-		justify-items: center;
-	}
+	
 	.ArtCard__card {
 		width: 47%;
 		height: 65px;
